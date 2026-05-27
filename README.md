@@ -68,4 +68,17 @@ Public portfolio of 12-day AI Trainer Workshop. By Day 12: 6 daily notebooks + c
 
 **Hallucination on garbage input:** Gemini sometimes invents a plausible résumé from non-résumé text. Defence: validate input before sending (e.g., minimum length, presence of email-like pattern).
 ```
+```markdown
+## Day 6 Lab 6A — Errors handled
 
+1. **Markdown fence wrapping** (`\`\`\`json ... \`\`\``)
+   The retry prompt asks Gemini to output raw JSON without fences. Triggers on ~5-10% of calls.
+
+2. **Hallucinated phone number when source has none**
+   `Optional[str] = None` in Pydantic — model returns `null`, schema validates.
+
+3. **Empty / whitespace-only input**
+   Pydantic raises ValidationError with "Field required". Caller catches.
+
+**Hallucination on garbage input:** Gemini sometimes invents a plausible résumé from non-résumé text. Defence: validate input before sending (e.g., minimum length, presence of email-like pattern).
+```
